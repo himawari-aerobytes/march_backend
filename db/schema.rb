@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_08_110723) do
+ActiveRecord::Schema.define(version: 2022_05_08_121652) do
 
   create_table "branches", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -54,18 +54,18 @@ ActiveRecord::Schema.define(version: 2022_05_08_110723) do
     t.boolean "tokan"
     t.string "name"
     t.string "address"
-    t.bigint "school_id", null: false
+    t.bigint "school_id"
     t.date "birthday"
     t.integer "grade"
     t.date "admission_year"
-    t.bigint "kyogaku_id", null: false
-    t.bigint "jmh_id", null: false
+    t.bigint "kyogaku_id"
+    t.bigint "jmh_id"
     t.boolean "visit"
     t.integer "mobile_phone_number"
     t.integer "home_phone_number"
-    t.bigint "headquarter_id", null: false
-    t.bigint "branch_id", null: false
-    t.bigint "district_id", null: false
+    t.bigint "headquarter_id"
+    t.bigint "branch_id"
+    t.bigint "district_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["branch_id"], name: "index_members_on_branch_id"
