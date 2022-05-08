@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tokan: false
+  name: MyString
+  address: MyString
+  school: one
+  birthday: 2022-05-08
+  grade: 1
+  admission_year: 2022-05-08
+  kyogaku: one
+  jmh: one
+  visit: false
+  mobile_phone_number: 1
+  home_phone_number: 1
+  headquarter: one
+  branch: one
+  district: one
+
+two:
+  tokan: false
+  name: MyString
+  address: MyString
+  school: two
+  birthday: 2022-05-08
+  grade: 1
+  admission_year: 2022-05-08
+  kyogaku: two
+  jmh: two
+  visit: false
+  mobile_phone_number: 1
+  home_phone_number: 1
+  headquarter: two
+  branch: two
+  district: two
