@@ -10,36 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_08_095620) do
+ActiveRecord::Schema.define(version: 2022_05_08_110723) do
 
   create_table "branches", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "headquarter_id"
+    t.index ["headquarter_id"], name: "index_branches_on_headquarter_id"
   end
 
   create_table "districts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "branch_id"
+    t.index ["branch_id"], name: "index_districts_on_branch_id"
+    t.index ["name"], name: "index_districts_on_name", unique: true
   end
 
   create_table "headquarters", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_headquarters_on_name", unique: true
   end
 
   create_table "jmhs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_jmhs_on_name", unique: true
   end
 
   create_table "kyogakus", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_kyogakus_on_name", unique: true
   end
 
   create_table "members", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -72,6 +80,7 @@ ActiveRecord::Schema.define(version: 2022_05_08_095620) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_schools_on_name", unique: true
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -112,6 +121,8 @@ ActiveRecord::Schema.define(version: 2022_05_08_095620) do
     t.index ["reporter_id"], name: "index_visit_histories_on_reporter_id"
   end
 
+  add_foreign_key "branches", "headquarters"
+  add_foreign_key "districts", "branches"
   add_foreign_key "members", "branches"
   add_foreign_key "members", "districts"
   add_foreign_key "members", "headquarters"

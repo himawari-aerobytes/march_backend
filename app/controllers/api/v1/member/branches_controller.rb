@@ -24,7 +24,7 @@ class Api::V1::Member::BranchesController < ApplicationController
 
     private
     def branch_params
-        params.require(:branch).permit(:id,:name)
+        params.require(:branch).permit(:id,:name,:headquarter_id)
     end
 
 end
