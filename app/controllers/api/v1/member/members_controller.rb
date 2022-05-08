@@ -1,5 +1,5 @@
-class Api::V1::Member::MemberController < ApplicationController
-    before_action :authenticate_user!
+class Api::V1::Member::MembersController < ApplicationController
+    before_action :authenticate_api_v1_user!
 
     def index
         render json: { status: 200, data: Member.all }
@@ -15,7 +15,7 @@ class Api::V1::Member::MemberController < ApplicationController
         if(member.destroy)
             render json: { status: 200, data: "削除完了" }
         else
-            render json {status: 500,data:"削除失敗" }
+            render json: {status: 500,data:"削除失敗" }
         end
 
         
@@ -26,7 +26,7 @@ class Api::V1::Member::MemberController < ApplicationController
         if(member.save)
             render json: { status: 200, data: member }
         else
-            render json {status: 500,data:"作成失敗" }
+            render json: {status: 500,data:"作成失敗" }
         end
         
     end
@@ -37,7 +37,7 @@ class Api::V1::Member::MemberController < ApplicationController
             render json: { status: 200, data: "update完了" }
 
         else
-            render json {status: 500,data:"update失敗" }
+            render json: {status: 500,data:"update失敗" }
         end
         
     end
