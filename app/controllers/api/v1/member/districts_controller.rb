@@ -4,8 +4,8 @@ class Api::V1::Member::DistrictsController < ApplicationController
     end
 
     def create
-        district = District.new(district_params)
-        if(District.save)
+        district = district.new(district_params)
+        if(district.save)
             render json: { status:200, data: district }
         else
             render json: { status:500, data: "エラー" }
@@ -13,8 +13,8 @@ class Api::V1::Member::DistrictsController < ApplicationController
     end
 
     def delete
-        District = District.find_by(district_params)
-        if(District.destroy)
+        district = District.find_by(district_params)
+        if(district.destroy)
             render json: { status:200, data: "削除完了" }
         else
             render json: { status:200, data: "削除失敗" }
